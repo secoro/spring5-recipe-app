@@ -1,14 +1,18 @@
 package guru.springframework.services;
 
-import guru.springframework.model.Recipe;
-import org.springframework.stereotype.Service;
+import guru.springframework.commands.RecipeCommand;
+import guru.springframework.domain.Recipe;
 
 import java.util.Set;
 
-@Service
+/**
+ * Created by jt on 6/13/17.
+ */
 public interface RecipeService {
 
     Set<Recipe> getRecipes();
 
-    Recipe findById(Long id);
+    Recipe findById(Long l);
+
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
 }
