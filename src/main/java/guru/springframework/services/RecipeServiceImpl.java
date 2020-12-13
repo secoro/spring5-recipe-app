@@ -4,6 +4,7 @@ import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.RecipeCommandToRecipe;
 import guru.springframework.converters.RecipeToRecipeCommand;
 import guru.springframework.domain.Recipe;
+import guru.springframework.exceptions.NotFoundException;
 import guru.springframework.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -40,12 +41,12 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe findById(Long l) {
+    public Recipe findById(Long id) {
 
-        Optional<Recipe> recipeOptional = recipeRepository.findById(l);
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe not found for ID: " + id);
         }
 
         return recipeOptional.get();
@@ -59,5 +60,15 @@ public class RecipeServiceImpl implements RecipeService {
         Recipe savedRecipe = recipeRepository.save(detachedRecipe);
         log.debug("Saved RecipeId:" + savedRecipe.getId());
         return recipeToRecipeCommand.convert(savedRecipe);
+    }
+
+    @Override
+    public RecipeCommand findCommandById(Long id) {
+        return recipeToRecipeCommand.convert(findById(id));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        recipeRepository.deleteById(id);
     }
 }

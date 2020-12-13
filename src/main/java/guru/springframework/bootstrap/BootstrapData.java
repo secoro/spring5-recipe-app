@@ -1,6 +1,6 @@
 package guru.springframework.bootstrap;
 
-import guru.springframework.model.*;
+import guru.springframework.domain.*;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
@@ -119,17 +119,21 @@ public class BootstrapData implements ApplicationListener<ContextRefreshedEvent>
         // Recipe One Categories
         spicyTacos.getCategories().add(mexican);
 
+        spicyTacos.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        spicyTacos.setServings(4);
+        spicyTacos.setSource("Simply Recipes");
+
         // Recipe One Ingredients
-        spicyTacos.getIngredients().add(new Ingredient("Ancho chili powder", BigDecimal.valueOf(2), tablespoon));
-        spicyTacos.getIngredients().add(new Ingredient("Dried oregano", BigDecimal.valueOf(1), teaspoon));
-        spicyTacos.getIngredients().add(new Ingredient("Dried cumin", BigDecimal.valueOf(1), teaspoon));
-        spicyTacos.getIngredients().add(new Ingredient("Sugar", BigDecimal.valueOf(1), teaspoon));
-        spicyTacos.getIngredients().add(new Ingredient("Salt", BigDecimal.valueOf(0.5), teaspoon));
-        spicyTacos.getIngredients().add(new Ingredient("Garlic, finely chopped", BigDecimal.valueOf(1), clove));
-        spicyTacos.getIngredients().add(new Ingredient("Finely grated orange zest", BigDecimal.valueOf(1), tablespoon));
-        spicyTacos.getIngredients().add(new Ingredient("Fresh-squeezed orange juice", BigDecimal.valueOf(3), tablespoon));
-        spicyTacos.getIngredients().add(new Ingredient("Olive oil", BigDecimal.valueOf(2), tablespoon));
-        spicyTacos.getIngredients().add(new Ingredient("4 to 6 Skinless, boneless chicken", BigDecimal.valueOf(1.25), pound));
+        spicyTacos.addIngredient(new Ingredient("Ancho chili powder", BigDecimal.valueOf(2), tablespoon));
+        spicyTacos.addIngredient(new Ingredient("Dried oregano", BigDecimal.valueOf(1), teaspoon));
+        spicyTacos.addIngredient(new Ingredient("Dried cumin", BigDecimal.valueOf(1), teaspoon));
+        spicyTacos.addIngredient(new Ingredient("Sugar", BigDecimal.valueOf(1), teaspoon));
+        spicyTacos.addIngredient(new Ingredient("Salt", BigDecimal.valueOf(0.5), teaspoon));
+        spicyTacos.addIngredient(new Ingredient("Garlic, finely chopped", BigDecimal.valueOf(1), clove));
+        spicyTacos.addIngredient(new Ingredient("Finely grated orange zest", BigDecimal.valueOf(1), tablespoon));
+        spicyTacos.addIngredient(new Ingredient("Fresh-squeezed orange juice", BigDecimal.valueOf(3), tablespoon));
+        spicyTacos.addIngredient(new Ingredient("Olive oil", BigDecimal.valueOf(2), tablespoon));
+        spicyTacos.addIngredient(new Ingredient("4 to 6 Skinless, boneless chicken", BigDecimal.valueOf(1.25), pound));
 
         recipes.add(spicyTacos);
 
@@ -164,17 +168,21 @@ public class BootstrapData implements ApplicationListener<ContextRefreshedEvent>
         // Recipe Two Categories
         perfectGuacamole.getCategories().add(fastfood);
 
+        perfectGuacamole.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
+        perfectGuacamole.setServings(4);
+        perfectGuacamole.setSource("Simply Recipes");
+
         // Recipe Two Ingredients
-        perfectGuacamole.getIngredients().add(new Ingredient("Ripe avocados", BigDecimal.valueOf(2), each));
-        perfectGuacamole.getIngredients().add(new Ingredient("Salt, more to taste", BigDecimal.valueOf(0.25), teaspoon));
-        perfectGuacamole.getIngredients().add(new Ingredient("Fresh lime juice or lemon juice", BigDecimal.valueOf(1), tablespoon));
-        perfectGuacamole.getIngredients().add(new Ingredient("Minced red onion or thinly sliced green onion", BigDecimal.valueOf(2), tablespoon));
-        perfectGuacamole.getIngredients().add(new Ingredient("Serrano chiles, stems and seeds removed, minced", BigDecimal.valueOf(1), each));
-        perfectGuacamole.getIngredients().add(new Ingredient("Cilantro (leaves and tender stems), finely chopped", BigDecimal.valueOf(2), each));
-        perfectGuacamole.getIngredients().add(new Ingredient("Freshly grated black pepper", BigDecimal.valueOf(1), dash));
-        perfectGuacamole.getIngredients().add(new Ingredient("Ripe tomato, seeds and pulp removed, chopped", BigDecimal.valueOf(0.5), each));
-        perfectGuacamole.getIngredients().add(new Ingredient("Red radishes or jicama, to garnish", BigDecimal.valueOf(2), each));
-        perfectGuacamole.getIngredients().add(new Ingredient("Tortilla chips", BigDecimal.valueOf(50), each));
+        perfectGuacamole.addIngredient(new Ingredient("Ripe avocados", BigDecimal.valueOf(2), each));
+        perfectGuacamole.addIngredient(new Ingredient("Salt, more to taste", BigDecimal.valueOf(0.25), teaspoon));
+        perfectGuacamole.addIngredient(new Ingredient("Fresh lime juice or lemon juice", BigDecimal.valueOf(1), tablespoon));
+        perfectGuacamole.addIngredient(new Ingredient("Minced red onion or thinly sliced green onion", BigDecimal.valueOf(2), tablespoon));
+        perfectGuacamole.addIngredient(new Ingredient("Serrano chiles, stems and seeds removed, minced", BigDecimal.valueOf(1), each));
+        perfectGuacamole.addIngredient(new Ingredient("Cilantro (leaves and tender stems), finely chopped", BigDecimal.valueOf(2), each));
+        perfectGuacamole.addIngredient(new Ingredient("Freshly grated black pepper", BigDecimal.valueOf(1), dash));
+        perfectGuacamole.addIngredient(new Ingredient("Ripe tomato, seeds and pulp removed, chopped", BigDecimal.valueOf(0.5), each));
+        perfectGuacamole.addIngredient(new Ingredient("Red radishes or jicama, to garnish", BigDecimal.valueOf(2), each));
+        perfectGuacamole.addIngredient(new Ingredient("Tortilla chips", BigDecimal.valueOf(50), each));
 
         recipes.add(perfectGuacamole);
 
